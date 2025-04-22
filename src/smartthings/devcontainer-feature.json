@@ -1,0 +1,22 @@
+{
+    "name": "SmartThings CLI",
+    "id": "smartthings",
+    "version": "1.0.0",
+    "description": "SmartThings CLI feature",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "1.10.4",
+            "description": "Version of SmartThings CLI to install"
+        },
+        "arch": {
+            "type": "string",
+            "default": "x64",
+            "enum": ["x64", "arm64"],
+            "description": "CPU Architecture of SmartThings CLI to install"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
