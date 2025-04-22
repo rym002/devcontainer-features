@@ -18,5 +18,12 @@
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"
+    ],
+    "mounts": [
+        {
+            "source": "${localEnv:HOME}/.config/@smartthings",
+            "target": "/home/vscode/.config/@smartthings",
+            "type": "bind"
+        }
     ]
 }
