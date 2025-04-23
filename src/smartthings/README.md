@@ -1,15 +1,13 @@
 
-# Smartthings CLI
+# SmartThings CLI (smartthings)
 
-A feature to install the smartthings CLI
+SmartThings CLI feature
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/rym002/devcontainer-features/smartthings:1": {
-        "version": "latest"
-    }
+    "ghcr.io/rym002/devcontainer-features/smartthings:1": {}
 }
 ```
 
@@ -17,5 +15,11 @@ A feature to install the smartthings CLI
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | CLI version or `latest` | string | latest |
+| version | Version of SmartThings CLI to install | string | 1.10.4 |
+| arch | CPU Architecture of SmartThings CLI to install | string | x64 |
 
+
+
+---
+
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/rym002/devcontainer-features/blob/main/src/smartthings/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
