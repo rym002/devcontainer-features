@@ -1,7 +1,7 @@
 {
     "name": "SmartThings CLI",
     "id": "smartthings",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "SmartThings CLI feature",
     "options": {
         "version": {
