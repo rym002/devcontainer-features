@@ -1,7 +1,7 @@
 {
     "name": "SmartThings CLI",
     "id": "smartthings",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "SmartThings CLI feature",
     "options": {
         "version": {
@@ -22,8 +22,10 @@
     "mounts": [
         {
             "source": "${localEnv:HOME}/.config/@smartthings",
-            "target": "/home/vscode/.config/@smartthings",
+            "target": "/mnt/@smartthings",
             "type": "bind"
         }
-    ]
+    ],
+    "postCreateCommand": "/workspaces/devcontainer-features/.devcontainer/smartthings/postCreateCommand.sh",
+    "postAttachCommand": "/workspaces/devcontainer-features/.devcontainer/smartthings/postAttachCommand.sh"
 }
