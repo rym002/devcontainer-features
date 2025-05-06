@@ -39,7 +39,7 @@ install_smartthings_cli() {
 }
 
 # Function to create a postContainerCreate script for autocomplete
-create_post_container_script() {
+create_post_create_script() {
     echo "Creating postContainerCreate script for SmartThings CLI autocomplete..."
 
     mkdir -p "$(dirname "$POST_CREATE_SCRIPT")"
@@ -49,10 +49,9 @@ create_post_container_script() {
 set -e
 
 # Enable SmartThings CLI autocomplete
-echo "Setting up SmartThings CLI autocomplete..."
+echo "Setting up SmartThings CLI autocomplete link..."
 mkdir -p /etc/bash_completion.d
-smartthings autocomplete:script bash > /etc/bash_completion.d/smartthings
-
+ln -s /mnt/@smartthings/cli/autocomplete/functions/bash/smartthings.bash /etc/bash_completion.d/smartthings
 
 EOF
 
@@ -71,19 +70,20 @@ create_post_attach_script() {
 set -e
 
 # Link the SmartThings config directory to the container user's home directory
-echo "Linking SmartThings config directory to container user's home..."
+HOME_DIR=\${CONTAINER_USER_HOME:-\${_REMOTE_USER_HOME:-\$HOME}}
+echo "Linking SmartThings config directory to container user's home... \${HOME_DIR}"
 
-mkdir -p ${_CONTAINER_USER_HOME}/.config
+mkdir -p \${HOME_DIR}/.config
 
-if [ -h ${_CONTAINER_USER_HOME}/.config/@smartthings ]; then
+if [ -h \${HOME_DIR}/.config/@smartthings ]; then
     echo "Mount directory already linked."
 else
     echo "Mount directory not linked, creating link..."
-    if [ -d ${_CONTAINER_USER_HOME}/.config/@smartthings ]; then
+    if [ -d \${HOME_DIR}/.config/@smartthings ]; then
         echo "Removing existing smartthings config directory..."
-        rm -rf ${_CONTAINER_USER_HOME}/.config/@smartthings
+        rm -rf \${HOME_DIR}/.config/@smartthings
     fi
-    ln -sf /mnt/@smartthings ${_CONTAINER_USER_HOME}/.config/
+    ln -sf /mnt/@smartthings \${HOME_DIR}/.config/
 fi
 
 echo "SmartThings config directory linked successfully."
@@ -98,7 +98,7 @@ EOF
 install_smartthings_cli
 
 # Create the postContainerCreate script
-create_post_container_script
+create_post_create_script
 
 # Create the postAttachCommand script
 create_post_attach_script
