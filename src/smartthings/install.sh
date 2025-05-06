@@ -51,12 +51,19 @@ set -e
 # Enable SmartThings CLI autocomplete
 echo "Setting up SmartThings CLI autocomplete link..."
 if [ -d /etc/bash_completion.d ]; then
-    echo "Bash completion directory exists."
-else
-    echo "Creating bash completion directory..."
-    sudo mkdir -p /etc/bash_completion.d
+    echo "Bash completion directory exists, creating symlink..."
+    if [ -h /etc/bash_completion.d/smartthings ]; then
+        echo "Symlink already exists."
+    else
+        echo "Creating symlink for SmartThings CLI autocomplete..."
+        # check if sudo is installed
+        if ! command -v sudo &> /dev/null; then 
+            ln -s /mnt/@smartthings/cli/autocomplete/functions/bash/smartthings.bash /etc/bash_completion.d/smartthings
+        else
+            sudo ln -s /mnt/@smartthings/cli/autocomplete/functions/bash/smartthings.bash /etc/bash_completion.d/smartthings
+        fi
+    fi
 fi
-sudo ln -s /mnt/@smartthings/cli/autocomplete/functions/bash/smartthings.bash /etc/bash_completion.d/smartthings
 
 EOF
 
