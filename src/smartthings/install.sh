@@ -50,8 +50,13 @@ set -e
 
 # Enable SmartThings CLI autocomplete
 echo "Setting up SmartThings CLI autocomplete link..."
-mkdir -p /etc/bash_completion.d
-ln -s /mnt/@smartthings/cli/autocomplete/functions/bash/smartthings.bash /etc/bash_completion.d/smartthings
+if [ -d /etc/bash_completion.d ]; then
+    echo "Bash completion directory exists."
+else
+    echo "Creating bash completion directory..."
+    sudo mkdir -p /etc/bash_completion.d
+fi
+sudo ln -s /mnt/@smartthings/cli/autocomplete/functions/bash/smartthings.bash /etc/bash_completion.d/smartthings
 
 EOF
 
