@@ -58,7 +58,8 @@ ln -sf /mnt/@smartthings \${HOME_DIR}/.config/
 echo "SmartThings config directory linked successfully."
 
 # Enable SmartThings CLI autocomplete
-printf 'eval \$(smartthings autocomplete:script bash)' >> \${HOME_DIR}/.bashrc
+printf 'test ! -d ~/.cache/@smartthings/cli/autocomplete/ && smartthings autocomplete -r 2> /dev/null\n' >> \${HOME_DIR}/.bashrc
+printf 'eval \$(smartthings autocomplete:script bash)\n' >> \${HOME_DIR}/.bashrc
 EOF
 
     chmod +x "$POST_CREATE_SCRIPT"
