@@ -1,7 +1,7 @@
 {
     "name": "SmartThings CLI",
     "id": "smartthings",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "SmartThings CLI feature",
     "options": {
         "version": {
@@ -26,6 +26,5 @@
             "type": "bind"
         }
     ],
-    "postCreateCommand": "/workspaces/devcontainer-features/.devcontainer/smartthings/postCreateCommand.sh",
-    "postAttachCommand": "/workspaces/devcontainer-features/.devcontainer/smartthings/postAttachCommand.sh"
+    "postCreateCommand": "/workspaces/devcontainer-features/.devcontainer/smartthings/postCreateCommand.sh"
 }
