@@ -1,7 +1,7 @@
 {
     "name": "SmartThings CLI",
     "id": "smartthings",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "SmartThings CLI feature",
     "options": {
         "version": {
@@ -14,7 +14,27 @@
             "default": "x64",
             "enum": ["x64", "arm64"],
             "description": "CPU Architecture of SmartThings CLI to install"
-        }
+        },
+        "autocomplete": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable SmartThings CLI autocompletion"
+        },
+        "installLuaLibs": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install the SmartThings lua libs source"
+        },
+        "luaLibsVersion": {
+            "type": "string",
+            "default": "v13_56",
+            "description": "Version of SmartThings lua libs to install"
+        },
+        "enableLogin": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable SmartThings CLI login support"
+        },
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"

@@ -6,7 +6,7 @@ mkdir -p ~/.config/@smartthings/
 ```
 
 # Login
-To login to smartthings, add the below to devcontainer.json to open a browser in the host when the cli opens the login port.
+To login to smartthings, set `"enableLogin": true` and add the below to devcontainer.json to open a browser in the host when the cli opens the login port.
 
 ```json
     "portsAttributes": {
