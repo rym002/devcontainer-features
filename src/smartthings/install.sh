@@ -6,11 +6,11 @@ SMARTTHINGS_CLI_VERSION=${VERSION:-"latest"}
 ARCH=${ARCH:-"x64"}
 INSTALL_DIR="/usr/local/bin"
 POST_CREATE_SCRIPT="/workspaces/devcontainer-features/.devcontainer/smartthings/postCreateCommand.sh"
-LUA_LIBS_VERSION=${LUA_LIBS_VERSION:-"v13_56"}
+LUA_LIBS_VERSION=${LUALIBSVERSION:-"v13_56"}
 LUA_LIBS_DIR="/workspaces/lua_libs"
-INSTALL_LUA_LIBS=${INSTALL_LUA_LIBS:-"true"}
+INSTALL_LUA_LIBS=${INSTALLLUALIBS:-"true"}
 AUTOCOMPLTE=${AUTOCOMPLETE:-"true"}
-ENABLE_LOGIN=${ENABLE_LOGIN:-"true"}
+ENABLE_LOGIN=${ENABLELOGIN:-"true"}
 
 # Function to install SmartThings CLI
 install_smartthings_cli() {
